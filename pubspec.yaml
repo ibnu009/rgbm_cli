@@ -1,5 +1,5 @@
 name: rgb_cli
-version: 0.1.0
+version: 1.0.0
 homepage: https://pub.dev/packages/rgb_cli
 description: CLI tool for the GetX RGB ecosystem and codebase
 environment:
