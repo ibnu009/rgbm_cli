@@ -142,8 +142,11 @@ class PubspecUtils {
     return dependencies.containsKey(package.trim());
   }
 
-  static bool get nullSafeSupport => !pubSpec.environment!['sdkConstraint']!
-      .allowsAny(VersionConstraint.parse('<2.12.0'));
+  static bool get nullSafeSupport {
+    final constraint = pubSpec.environment['sdk'];
+    if (constraint == null) return false;
+    return !constraint.allowsAny(VersionConstraint.parse('<2.12.0'));
+  }
 
 
   static String get getPackageImport => "import 'package:get/get.dart';";

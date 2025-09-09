@@ -12,3 +12,4 @@ export 'remove/remove.dart';
 export 'sort/sort.dart';
 export 'update/update.dart';
 export 'version/version.dart';
+export 'build.dart';

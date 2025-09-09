@@ -304,7 +304,6 @@ class ValueIndex<T> {
       other is ValueIndex<T> && value == other.value && index == other.index;
 
   @override
-  // TODO: implement hashCode
   int get hashCode => super.hashCode;
 }
 

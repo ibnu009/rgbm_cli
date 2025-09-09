@@ -17,6 +17,23 @@ class HelpCommand extends Command {
     LogService.info('''
 List available commands:
 $commandsHelp
+
+Build commands:
+  rgb <command> [options]
+
+Examples:
+  rgb build -a -s    # Android staging APK
+  rgb build -a -p    # Android production APK
+  rgb build -aab     # Android App Bundle (production)
+  rgb build -i -s    # iOS staging IPA
+  rgb build -i -p    # iOS production IPA
+
+Flags and aliases:
+  -a | -android    Android
+  -i | -ios        iOS
+  -s | -staging    Staging environment
+  -p | -production Production environment
+  -aab             Android App Bundle (production)
 ''');
   }
 
@@ -29,7 +46,9 @@ $commandsHelp
     });
     var result = '';
     for (var command in commands) {
-      result += '\n ${'  ' * index} ${command.commandName}:  ${command.hint}';
+      final aliases = command.alias;
+      final aliasText = aliases.isNotEmpty ? ' (aliases: ${aliases.join(', ')})' : '';
+      result += '\n ${'  ' * index} ${command.commandName}$aliasText:  ${command.hint}';
       result += _getCommandsHelp(command.childrens, index + 1);
     }
     return result;

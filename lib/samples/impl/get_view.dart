@@ -1,4 +1,3 @@
-import 'package:recase/recase.dart';
 import '../../common/utils/pubspec/pubspec_utils.dart';
 import '../interface/sample_interface.dart';
 

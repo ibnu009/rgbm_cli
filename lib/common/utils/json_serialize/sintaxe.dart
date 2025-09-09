@@ -396,6 +396,5 @@ class ClassDefinition {
   }
 
   @override
-  // TODO: implement hashCode
   int get hashCode => super.hashCode;
 }

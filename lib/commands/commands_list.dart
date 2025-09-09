@@ -27,6 +27,7 @@ final List<Command> commands = [
   InstallCommand(),
   RemoveCommand(),
   SortCommand(),
+  BuildCommand(),
   UpdateCommand(),
 ];
 

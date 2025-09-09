@@ -16,7 +16,7 @@ File handleFileCreate(String name, String command, String on, bool extraFolder,
   folderName = folderName;
 
   final fileModel = Structure.model(
-    '$name',
+    name,
     command,
     extraFolder,
     on: on,

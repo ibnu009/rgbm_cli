@@ -17,12 +17,6 @@ rgb create page:login -m auth
 // Without -m defaults to module "general":
 rgb create page:home
 
-// To create a new controller in a specific folder:
-// Note: you don't need to reference the folder,
-// Getx will search automatically for the home folder
-// and add your controller there.
-rgb create controller:dialogcontroller on home
-
 // To create a new view model in a specific folder:
 // Long form:
 rgb create view_model:view_model_name on home
@@ -34,6 +28,12 @@ rgb create -vm:view_model_name on home
 rgb create -u address
 // or long form
 rgb create use_case:address
+
+// To build the app:
+rgb build
+// Example: rgb build -android -staging
+// Options: -android (-a), -ios(-i)
+// Environments: -staging (-s), -production (-p), -aab
 
 // To generate a class model:
 // Note: 'assets/models/user.json' path of your template file in json format
@@ -104,6 +104,12 @@ Below is the list of outputs each command generates, based on current implementa
     - `<target_path>/<name>_model.dart`
   - Unless `--skipProvider` is passed, also generates a Provider with basic endpoints:
     - `<target_path>/providers/<name>_provider.dart`
+
+- __build__
+  - Build app using build-app.sh script
+  - Options: -android (-a), -ios(-i)
+  - Envs: -staging (-s), -production (-p), -aab
+  - Examples: rgb build -a -s | rgb build -i -p | rgb build -aab
 
 - __init__
   - Creates a minimal `lib/main.dart` for GetX pattern.

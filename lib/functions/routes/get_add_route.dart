@@ -33,9 +33,10 @@ import 'package:${PubspecUtils.projectName}/$bindingDir';
 import 'package:${PubspecUtils.projectName}/$viewDir';
 
 class $className {
+  static const ${name.camelCase}Route = "/${name.snakeCase}";
   static final routes = [
     GetPage(
-      name: "/${name.snakeCase}",
+      name: ${name.camelCase}Route,
       page: () => ${name.pascalCase}View(),
       binding: ${name.pascalCase}Binding(),
     ),
@@ -47,9 +48,12 @@ class $className {
 void _updateModuleRoute(File moduleFile, String moduleName, String name, String bindingDir, String viewDir) {
   var content = moduleFile.readAsStringSync();
   var importStatement = "import 'package:${PubspecUtils.projectName}/$bindingDir';\nimport 'package:${PubspecUtils.projectName}/$viewDir';";
+  var className = '${moduleName.pascalCase}Route';
+  var constLine = '  static const ${name.camelCase}Route = "/${name.snakeCase}";';
+  
   var routeEntry = '''
     GetPage(
-      name: "/${name.snakeCase}",
+      name: ${name.camelCase}Route,
       page: () => ${name.pascalCase}View(),
       binding: ${name.pascalCase}Binding(),
     ),
@@ -57,6 +61,14 @@ void _updateModuleRoute(File moduleFile, String moduleName, String name, String 
 
   if (!content.contains(importStatement)) {
     content = "$importStatement\n$content";
+  }
+
+  // Ensure the static const route is declared inside the class
+  if (!content.contains(constLine)) {
+    content = content.replaceFirst(
+      'class $className {',
+      'class $className {\n$constLine',
+    );
   }
 
   if (!content.contains(routeEntry)) {

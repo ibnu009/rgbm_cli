@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:recase/recase.dart';
 
-import '../../../../common/utils/pubspec/pubspec_utils.dart';
 import '../../../../core/internationalization.dart';
 import '../../../../core/locales.g.dart';
 import '../../../../functions/create/create_single_file.dart';
@@ -45,7 +44,7 @@ class CreateUsecaseCommand extends Command {
 import 'package:dio/dio.dart';
 
 abstract class ${pascal}Interface {
- // TODO: implement interface for ${pascal}
+ // TODO: implement interface for $pascal
 
 //   Future<Either<DioException, dynamic>> fetch${pascal}s({
 //     required CancelToken cancelToken,
@@ -61,7 +60,7 @@ import 'package:dio/dio.dart';
 import '${snake}_interface.dart';
 
 class ${pascal}UseCase implements ${pascal}Interface {
-  // TODO: import services for ${pascal}
+  // TODO: import services for $pascal
   
   // TODO: implement business logic for ${pascal}UseCase
  

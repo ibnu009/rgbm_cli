@@ -1,4 +1,4 @@
-// DO NOT EDIT. This is code generated via package:get_cli/rgb_cli.dart
+// DO NOT EDIT. This is code generated via package:rgb_cli/rgb_cli.dart
 
 // ignore_for_file: lines_longer_than_80_chars
 // ignore_for_file: constant_identifier_names
@@ -125,7 +125,7 @@ class Locales {
     'error_package_not_found': 'Package: %s not found in pub.dev.',
     'error_cli_version_not_found':
         'failed to find the version you have installed.',
-    'error_update_cli': 'There was an error upgrading get_cli.',
+    'error_update_cli': 'There was an error upgrading rgb_cli.',
     'error_folder_not_found': 'Folder %s not found.',
     'error_file_not_found': 'File not found in %s.',
     'error_access_denied': 'Access denied to %s.',
@@ -147,14 +147,14 @@ class Locales {
     'hint_install': 'Use to install a package in your project (dependencies):',
     'hint_remove': 'Use to remove a package in your project (dependencies):',
     'hint_sort': 'Sort imports and format dart files',
-    'hint_update': 'To update GET_CLI',
+    'hint_update': 'To update RGB_CLI',
     'hint_version': 'Shows the current CLI version\'',
     'info_unnecessary_flag': 'The %s is not necessary',
     'info_unnecessary_flag_prural': 'The %s are not necessary.',
     'info_package_not_installed':
         'Package: %s is not installed in this application.',
     'info_cli_last_version_already_installed':
-        'Latest version of get_cli already installed.',
+        'Latest version of rgb_cli already installed.',
     'info_no_file_overwritten': 'No files were overwritten.',
     'info_update_available':
         'There\'s an update available! Current installed version: %s',
@@ -211,7 +211,7 @@ class Locales {
     'error_package_not_found': 'Paket: %s tidak ditemukan di pub.dev.',
     'error_cli_version_not_found':
     'Gagal menemukan versi yang telah Anda instal.',
-    'error_update_cli': 'Terjadi kesalahan saat memperbarui get_cli.',
+    'error_update_cli': 'Terjadi kesalahan saat memperbarui rgb_cli.',
     'error_folder_not_found': 'Folder %s tidak ditemukan.',
     'error_file_not_found': 'File tidak ditemukan di %s.',
     'error_access_denied': 'Akses ditolak ke %s.',
@@ -233,14 +233,14 @@ class Locales {
     'hint_install': 'Gunakan untuk menginstal paket dalam proyek Anda (dependencies):',
     'hint_remove': 'Gunakan untuk menghapus paket dalam proyek Anda (dependencies):',
     'hint_sort': 'Urutkan impor dan format file Dart',
-    'hint_update': 'Untuk memperbarui GET_CLI',
+    'hint_update': 'Untuk memperbarui rgb_cli',
     'hint_version': 'Menampilkan versi CLI saat ini',
     'info_unnecessary_flag': '%s tidak diperlukan',
     'info_unnecessary_flag_prural': '%s tidak diperlukan.',
     'info_package_not_installed':
     'Paket: %s tidak terinstal dalam aplikasi ini.',
     'info_cli_last_version_already_installed':
-    'Versi terbaru get_cli sudah terinstal.',
+    'Versi terbaru rgb_cli sudah terinstal.',
     'info_no_file_overwritten': 'Tidak ada file yang ditimpa.',
     'info_update_available':
     'Tersedia pembaruan! Versi saat ini: %s',

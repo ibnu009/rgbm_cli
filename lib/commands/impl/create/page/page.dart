@@ -32,7 +32,7 @@ class CreatePageCommand extends Command {
       isProject = RgbCli.arguments[1].split(':').first == 'project';
     }
 
-    var fullName = this.name;
+    var fullName = name;
     if (fullName.isEmpty || isProject) {
       fullName = 'home';
     }

@@ -45,7 +45,7 @@ class ShellUtils {
     forceUpdate = RgbCli.arguments.contains('-f');
     if (!isGit && !forceUpdate) {
       var versionInPubDev =
-          await PubDevApi.getLatestVersionFromPackage('get_cli');
+          await PubDevApi.getLatestVersionFromPackage('rgb_cli');
 
       var versionInstalled = await PubspecLock.getVersionCli(disableLog: true);
 
@@ -56,24 +56,24 @@ class ShellUtils {
       }
     }
 
-    LogService.info('Upgrading get_cli …');
+    LogService.info('Upgrading rgb_cli …');
 
     try {
       if (Platform.script.path.contains('flutter')) {
         if (isGit) {
           await run(
-              'flutter pub global activate -sgit https://github.com/jonataslaw/get_cli/',
+              'flutter pub global activate -sgit https://github.com/jonataslaw/rgb_cli/',
               verbose: true);
         } else {
-          await run('flutter pub global activate get_cli', verbose: true);
+          await run('flutter pub global activate rgb_cli', verbose: true);
         }
       } else {
         if (isGit) {
           await run(
-              'flutter pub global activate -sgit https://github.com/jonataslaw/get_cli/',
+              'flutter pub global activate -sgit https://github.com/jonataslaw/rgb_cli/',
               verbose: true);
         } else {
-          await run('flutter pub global activate get_cli', verbose: true);
+          await run('flutter pub global activate rgb_cli', verbose: true);
         }
       }
       return LogService.success(LocaleKeys.sucess_update_cli.tr);

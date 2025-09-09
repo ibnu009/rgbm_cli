@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:rgb_cli/functions/version/print_get_cli.dart';
 import 'package:version/version.dart';
 
 import '../../cli_config/cli_config.dart';
@@ -9,12 +10,11 @@ import '../../common/utils/pubspec/pubspec_lock.dart';
 import '../../core/internationalization.dart';
 import '../../core/locales.g.dart';
 import 'check_dev_version.dart';
-import 'print_get_cli.dart';
 
 void checkForUpdate() async {
   if (!CliConfig.updateIsCheckingToday()) {
     if (!isDevVersion()) {
-      await PubDevApi.getLatestVersionFromPackage('get_cli')
+      await PubDevApi.getLatestVersionFromPackage('rgb_cli')
           .then((versionInPubDev) async {
         await PubspecLock.getVersionCli(disableLog: true)
             .then((versionInstalled) async {
@@ -29,8 +29,8 @@ void checkForUpdate() async {
                     LocaleKeys.info_update_available.trArgs([versionInstalled]))
                 .toString());
             //await versionCommand();
-            printGetCli();
-            final String codeSample = LogService.code('get update');
+            printRGBCli();
+            final String codeSample = LogService.code('rgb update');
             LogService.info(
                 '${LocaleKeys.info_update_available2.trArgs([
                       versionInPubDev
