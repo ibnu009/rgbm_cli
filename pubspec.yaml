@@ -1,5 +1,5 @@
 name: rgb_cli
-version: 1.0.3
+version: 1.0.5
 homepage: https://pub.dev/packages/rgb_cli
 description: CLI tool for the GetX RGB ecosystem and codebase
 environment:
@@ -8,7 +8,7 @@ environment:
 dependencies:
   ansicolor: ">=2.0.3 <3.0.0"
   collection: ">=1.18.0 <1.19.1"
-  dart_style: ">=2.3.6 <3.1.2"
+  dart_style: ">=3.1.2 <4.0.0"
   dcli: ">=6.0.5 <7.0.5"
   http: ">=1.1.0 <1.5.0"
   intl: ">=0.18.0 <0.20.2"

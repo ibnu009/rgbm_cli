@@ -147,9 +147,11 @@ class Token {
 class ObjectNode extends Node {
   final List<PropertyNode> children;
 
-  ObjectNode(
-      [super.type = 'Object', super.loc, List<PropertyNode>? children])
-      : children = children ?? <PropertyNode>[];
+  ObjectNode([
+    super.type = 'Object',
+    super.loc,
+    List<PropertyNode>? children,
+  ]) : children = children ?? <PropertyNode>[];
 
   ObjectNode copyWith({
     String? type,
@@ -166,20 +168,28 @@ class ObjectNode extends Node {
   @override
   bool operator ==(Object other) =>
       other is ObjectNode &&
-      type == other.type &&
-      loc == other.loc &&
-      _compareDynamicList(children, other.children);
+          type == other.type &&
+          loc == other.loc &&
+          _compareDynamicList(children, other.children);
 
   @override
-  // TODO: implement hashCode
-  int get hashCode => super.hashCode;
+  int get hashCode {
+    var hash = type.hashCode ^ (loc?.hashCode ?? 0);
+    for (final child in children) {
+      hash = hash ^ child.hashCode;
+    }
+    return hash;
+  }
 }
 
 class ArrayNode extends Node {
   final List<Node> children;
 
-  ArrayNode([super.type = 'Array', super.loc, List<Node>? children])
-      : children = children ?? <Node>[];
+  ArrayNode([
+    super.type = 'Array',
+    super.loc,
+    List<Node>? children,
+  ]) : children = children ?? <Node>[];
 
   ArrayNode copyWith({
     String? type,
@@ -196,14 +206,20 @@ class ArrayNode extends Node {
   @override
   bool operator ==(Object other) =>
       other is ArrayNode &&
-      type == other.type &&
-      loc == other.loc &&
-      _compareDynamicList(children, other.children);
+          type == other.type &&
+          loc == other.loc &&
+          _compareDynamicList(children, other.children);
 
   @override
-  // TODO: implement hashCode
-  int get hashCode => super.hashCode;
+  int get hashCode {
+    var hash = type.hashCode ^ (loc?.hashCode ?? 0);
+    for (final child in children) {
+      hash ^= child.hashCode;
+    }
+    return hash;
+  }
 }
+
 
 class PropertyNode extends Node {
   final List<Node> children;
@@ -224,12 +240,12 @@ class PropertyNode extends Node {
   @override
   bool operator ==(Object other) =>
       other is PropertyNode &&
-      type == other.type &&
-      index == other.index &&
-      loc == other.loc &&
-      key == other.key &&
-      value == other.value &&
-      _compareDynamicList(children, other.children);
+          type == other.type &&
+          index == other.index &&
+          loc == other.loc &&
+          key == other.key &&
+          value == other.value &&
+          _compareDynamicList(children, other.children);
 
   PropertyNode copyWith({
     List<Node>? children,
@@ -250,8 +266,16 @@ class PropertyNode extends Node {
   }
 
   @override
-  // TODO: implement hashCode
-  int get hashCode => super.hashCode;
+  int get hashCode {
+    var hash = type.hashCode ^ (loc?.hashCode ?? 0);
+    hash ^= (index ?? 0).hashCode;
+    hash ^= key?.hashCode ?? 0;
+    hash ^= value?.hashCode ?? 0;
+    for (final child in children) {
+      hash ^= child.hashCode;
+    }
+    return hash;
+  }
 }
 
 class LiteralNode extends Node {
@@ -259,19 +283,19 @@ class LiteralNode extends Node {
   final String? raw;
 
   LiteralNode(
-    this.value,
-    this.raw, {
-    String type = 'Literal',
-    Location? loc,
-  }) : super(type, loc);
+      this.value,
+      this.raw, {
+        String type = 'Literal',
+        Location? loc,
+      }) : super(type, loc);
 
   @override
   bool operator ==(Object other) =>
       other is LiteralNode &&
-      type == other.type &&
-      loc == other.loc &&
-      value == other.value &&
-      raw == other.raw;
+          type == other.type &&
+          loc == other.loc &&
+          value == other.value &&
+          raw == other.raw;
 
   LiteralNode copyWith({
     dynamic value,
@@ -288,8 +312,11 @@ class LiteralNode extends Node {
   }
 
   @override
-  // TODO: implement hashCode
-  int get hashCode => super.hashCode;
+  int get hashCode =>
+      type.hashCode ^
+      (loc?.hashCode ?? 0) ^
+      (value?.hashCode ?? 0) ^
+      (raw?.hashCode ?? 0);
 }
 
 @immutable

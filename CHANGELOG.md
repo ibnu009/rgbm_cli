@@ -1,7 +1,15 @@
+## [1.0.5]
+
+- Fix: issue in the newest version of Flutter
+
+## [1.0.4]
+
+- Fix: wrong contraint of DartCheck in pubspec.yaml
+
 ## [1.0.3]
 
 - Update: add help examples
-- 
+
 ## [1.0.2]
 
 - Fix: add missing dependency in pubspec.yaml

@@ -396,5 +396,11 @@ class ClassDefinition {
   }
 
   @override
-  int get hashCode => super.hashCode;
+  int get hashCode {
+    var hash = name.hashCode ^ privateFields.hashCode ^ (copyConstructor?.hashCode ?? 0);
+    fields.forEach((k, v) {
+      hash ^= k.hashCode ^ v.hashCode;
+    });
+    return hash;
+  }
 }
